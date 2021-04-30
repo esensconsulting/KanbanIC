@@ -11,7 +11,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/esensconsulting/KanbanIC">
-    <img src="logo-KanbanIC.png" alt="Logo"  height="80">
+    <img src="./src/assets/logo.png" alt="Logo"  height="80">
   </a>
 
   <!-- <h3 align="center">KanbanIC</h3> -->
@@ -89,7 +89,8 @@ This is an example of how to list things you need to use the software and how to
   ```
 * dfinity
   ```sh
-  DFX_VERSION=0.6.26 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)"
+  DFX_VERSION=0.7.0-beta.3 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh" 
+
   ```
 
 
