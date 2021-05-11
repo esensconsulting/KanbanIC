@@ -63,11 +63,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<!-- [Presentation website](https://KanbanIC-esens.webflow.io/) -->
-
 A simple way to manage your daily tasks and projects. Collaborate easily and securily.
 
 ‍KanbanIC is built on the Internet Computer !
+![](docs/projet-1.png)
+![](docs/Carte.png)
 
 
 ### Built With
@@ -157,7 +157,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@AnthonyMQ23](https://twitter.com/AnthonyMQ23) - email
+Anthony MARQUES - [@AnthonyMQ23](https://twitter.com/AnthonyMQ23) - amarques@esensconsulting.com
 
 Project Link: [https://github.com/esensconsulting/KanbanIC](https://github.com/esensconsulting/KanbanIC)
 
