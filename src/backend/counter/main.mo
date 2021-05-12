@@ -1,3 +1,4 @@
+import Principal "mo:base/Principal";
 actor {
     stable var currentValue: Nat = 0;
 
@@ -7,5 +8,9 @@ actor {
 
     public query func getValue(): async Nat {
         currentValue;
+    };
+    
+    public query(msg) func getPrincipal(): async Text {
+        Principal.toText(msg.caller);
     };
 };

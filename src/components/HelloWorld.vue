@@ -6,9 +6,9 @@
     securily.
   </p>
   <p>We are building on the Internet Computer !</p>
-
+  <p>{{principal}}</p>
   <button class="demo-button" @click="increment()">
-    Anticipation counter is: {{ count }}
+    Anticipation counter is: {{ count }} 
   </button>
 </template>
 
@@ -25,7 +25,9 @@ export default defineComponent({
     },
   },
   setup: () => {
+    
     const count = ref(0);
+    let principal = ref("");
 
     const refreshCounter = async () => {
       const res = await counter.getValue();
@@ -37,9 +39,14 @@ export default defineComponent({
       refreshCounter();
     };
 
-    onMounted(refreshCounter);
+    onMounted(() => {
+      counter.getPrincipal().then(res => {
+        principal.value = res
+      });
+      refreshCounter()
+    });
 
-    return { increment, count };
+    return { increment, count, principal };
   },
 });
 </script>

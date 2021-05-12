@@ -1,11 +1,21 @@
 import State "lib/State";
 import Types "lib/Types";
 import Time "mo:base/Time";
+import Buffer "mo:base/Buffer";
+import HashMap "mo:base/HashMap";
+import Text "mo:base/Text";
+import Iter "mo:base/Iter";
+import Array "mo:base/Array";
 
 shared ({caller = initPrincipal}) actor class Kanban () {
   public type ProfilePic = Types.ProfilePic;
   public type Timestamp = Types.Timestamp;
   public type UserId = Types.UserId;
+  public type Profile = State.Profile; //migrate to Types
+
+  stable var profileEntries : [(UserId, Profile)] = [];
+  let map = HashMap.fromIter<UserId,Profile>(
+    profileEntries.vals(), 10, Text.equal, Text.hash);
 
   var state = State.empty({ admin = initPrincipal });
 
@@ -40,6 +50,7 @@ shared ({caller = initPrincipal}) actor class Kanban () {
             createdAt = now ;
         };
         state.profiles.put(userName_, profile);
+        map.put(userName_, profile);
         // rewards init invariant: rewards is initialized to zero (is non-null).
         // state.rewards.put(userName_, 0);
         // state.eventLog.add({
@@ -63,5 +74,33 @@ shared ({caller = initPrincipal}) actor class Kanban () {
       // accessCheck(msg.caller, #create, #user userName)!;
       createProfile_(userName, ?msg.caller, pic)!
     }
+  };
+
+
+  // public shared query func getAllProfiles() : async [Profile] {
+  //   //do ? {
+  //     let b = Buffer.Buffer<Profile>(0);
+  //     for ((v, val) in map.entries()) {
+  //       // b.add(state.profiles.get(v)!);
+  //       b.add(val);
+  //     };
+  //     b.toArray()
+  //   //}
+  // };
+
+  public query func getAllProfiles(): async [Profile] {
+        var profiles: [Profile] = [];
+        for((id, item) in map.entries()) {
+            profiles := Array.append<Profile>(profiles, [item]);
+        };
+        return profiles;
+    };
+
+  system func preupgrade() {
+    profileEntries := Iter.toArray(map.entries());
+  };
+
+  system func postupgrade() {
+    profileEntries := [];
   };
 }
