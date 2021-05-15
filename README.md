@@ -89,7 +89,7 @@ This is an example of how to list things you need to use the software and how to
   ```
 * dfinity
   ```sh
-  DFX_VERSION=0.7.0-beta.3 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh" 
+  DFX_VERSION=0.7.0-beta.3 sh -ci "$(curl -fsSL https://sdk.dfinity.org/install.sh)" 
 
   ```
 

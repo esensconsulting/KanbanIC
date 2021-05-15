@@ -4,13 +4,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "postinstall": "patch-package"
+    "serve": "vite preview"
   },
   "dependencies": {
-    "@dfinity/agent": "^0.8.3",
+    "@dfinity/agent": "0.8.8",
     "@dfinity/authentication": "^0.7.1",
-    "vue": "^3.0.5"
+    "vue": "^3.0.5",
+    "@dfinity/auth-client": "^0.8.8"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",

@@ -35,6 +35,7 @@ export default defineComponent({
     };
 
     const increment = async () => {
+      console.log("opts",counter)
       await counter.increment();
       refreshCounter();
     };
