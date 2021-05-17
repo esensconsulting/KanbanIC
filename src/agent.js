@@ -3,5 +3,6 @@ import { idlFactory as counter_idl, canisterId as counter_id } from "dfx-generat
 
 export let counter = {}
 export function initAgents (agent) {
-  counter = Actor.createActor(counter_idl, { agent, canisterId: counter_id })
+  counter = Actor.createActor(counter_idl, { agent, canisterId: counter_id });
+  counter.canisterId = counter_id;
 }

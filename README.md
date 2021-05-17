@@ -105,7 +105,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Deploy you canisters locally
    ```sh
-    dfx deploy
+    ./deploy.sh
     ou
     dfx canister create --all
     dfx build

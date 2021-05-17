@@ -7,11 +7,6 @@
     "kanban": {
       "main": "src/backend/Kanban.mo",
       "type": "motoko"
-    }
-    ,"internet_identity": {
-      "wasm": "src/backend/internet-identity/internet_identity.wasm",
-      "candid":"src/backend/internet-identity/internet_identity.did",
-      "type": "custom"
     },
     "assets": {
       "dependencies": [

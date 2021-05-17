@@ -8,9 +8,11 @@
   },
   "dependencies": {
     "@dfinity/agent": "0.8.8",
+    "@dfinity/auth-client": "^0.8.8",
     "@dfinity/authentication": "^0.7.1",
+    "dotenv": "^9.0.2",
     "vue": "^3.0.5",
-    "@dfinity/auth-client": "^0.8.8"
+    "vue-router": "^4.0.8"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^1.2.1",

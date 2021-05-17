@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ msg }}</h1>
+  <h1>Kaban IC</h1>
 
   <p>
     A simple way to manage your daily tasks and projects. Collaborate easily and
@@ -17,13 +17,8 @@ import { ref, onMounted, defineComponent } from "vue";
 import { counter } from "../agent";
 
 export default defineComponent({
-  name: "HelloWorld",
-  props: {
-    msg: {
-      type: String,
-      required: true,
-    },
-  },
+  name: "Home",
+  props: {},
   setup: () => {
     
     const count = ref(0);
@@ -41,6 +36,7 @@ export default defineComponent({
     };
 
     onMounted(() => {
+      console.log(counter);
       counter.getPrincipal().then(res => {
         principal.value = res
       });
