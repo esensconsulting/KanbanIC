@@ -105,7 +105,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 3. Deploy you canisters locally
    ```sh
-    ./deploy.sh
+    ./deploy.sh #(mandatory on the first run, it initializes Internet Identity locally)
     ou
     dfx canister create --all
     dfx build
@@ -113,7 +113,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Initialize data locally
     ```sh
-    ./initData.sh
+    ./scripts/initData.sh
     ```
 5. Devserver with Hot reload for frontend development
     ```sh
