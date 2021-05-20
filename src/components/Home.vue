@@ -6,23 +6,24 @@
     securily.
   </p>
   <p>We are building on the Internet Computer !</p>
-  <p>{{principal}}</p>
+  <p>{{ principal }}</p>
+  <p>data: {{ kanbanData }}</p>
   <button class="demo-button" @click="increment()">
-    Anticipation counter is: {{ count }} 
+    Anticipation counter is: {{ count }}
   </button>
 </template>
 
 <script>
 import { ref, onMounted, defineComponent } from "vue";
-import { counter } from "../agent";
+import { counter, kanban } from "../agent";
 
 export default defineComponent({
   name: "Home",
   props: {},
   setup: () => {
-    
     const count = ref(0);
     let principal = ref("");
+    let kanbanData = ref("");
 
     const refreshCounter = async () => {
       const res = await counter.getValue();
@@ -30,20 +31,23 @@ export default defineComponent({
     };
 
     const increment = async () => {
-      console.log("opts",counter)
+      console.log("opts", counter);
       await counter.increment();
       refreshCounter();
     };
 
     onMounted(() => {
-      console.log(counter);
-      counter.getPrincipal().then(res => {
-        principal.value = res
+      kanban.getBoardDto(0).then((res) => {
+        console.log(JSON.stringify(res));
+        kanbanData.value = JSON.stringify(res);
       });
-      refreshCounter()
+      counter.getPrincipal().then((res) => {
+        principal.value = res;
+      });
+      refreshCounter();
     });
 
-    return { increment, count, principal };
+    return { increment, count, principal, kanbanData };
   },
 });
 </script>

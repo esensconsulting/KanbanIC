@@ -117,7 +117,7 @@ This is an example of how to list things you need to use the software and how to
     ```
 5. Devserver with Hot reload for frontend development
     ```sh
-    npm run start
+    npm run dev
     ```
 
 <!-- USAGE EXAMPLES -->
