@@ -1,5 +1,5 @@
 import { defineConfig } from "vite"
-import vue from "@vitejs/plugin-vue"
+import { createVuePlugin } from 'vite-plugin-vue2'
 import dfxJson from "./dfx.json"
 import path from "path"
 
@@ -26,7 +26,7 @@ const aliases = Object.entries(dfxJson.canisters).reduce(
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [createVuePlugin()],
   resolve: {
     alias: {
       ...aliases,

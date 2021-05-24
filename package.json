@@ -11,11 +11,11 @@
     "@dfinity/auth-client": "^0.8.8",
     "@dfinity/authentication": "^0.7.1",
     "dotenv": "^9.0.2",
-    "vue": "^3.0.5",
-    "vue-router": "^4.0.8"
+    "vue": "^2.6.12",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^1.2.1",
+    "vite-plugin-vue2": "^1.4.2",
     "@vue/compiler-sfc": "^3.0.5",
     "patch-package": "^6.4.7",
     "vite": "^2.1.5"

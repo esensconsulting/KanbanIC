@@ -1,55 +1,70 @@
 <template>
-  <h1>Kaban IC</h1>
+  <div>
+    <h1>Kaban IC</h1>
 
-  <p>
-    A simple way to manage your daily tasks and projects. Collaborate easily and
-    securily.
-  </p>
-  <p>We are building on the Internet Computer !</p>
-  <p>{{ principal }}</p>
-  <p>data: {{ kanbanData }}</p>
-  <button class="demo-button" @click="increment()">
-    Anticipation counter is: {{ count }}
-  </button>
+    <p>
+      A simple way to manage your daily tasks and projects. Collaborate easily
+      and securily.
+    </p>
+    <p>We are building on the Internet Computer !</p>
+    <p>{{ principal }}</p>
+    <p>data: {{ kanbanData }}</p>
+    <button class="demo-button" @click="increment()">
+      Anticipation counter is: {{ count }}
+    </button>
+  </div>
 </template>
 
 <script>
-import { ref, onMounted, defineComponent } from "vue";
 import { counter, kanban } from "../agent";
 
-export default defineComponent({
+export default {
   name: "Home",
   props: {},
-  setup: () => {
-    const count = ref(0);
-    let principal = ref("");
-    let kanbanData = ref("");
-
-    const refreshCounter = async () => {
+  data: () => {
+    return {
+      count: 0,
+      principal: "",
+      kanbanData: "",
+    };
+  },
+  methods: {
+    refreshCounter: async () => {
       const res = await counter.getValue();
       count.value = res.toString();
-    };
-
-    const increment = async () => {
+    },
+    increment: async () => {
       console.log("opts", counter);
       await counter.increment();
       refreshCounter();
-    };
-
-    onMounted(() => {
-      kanban.getBoardDto(0).then((res) => {
-        console.log(JSON.stringify(res));
-        kanbanData.value = JSON.stringify(res);
-      });
-      counter.getPrincipal().then((res) => {
-        principal.value = res;
-      });
-      refreshCounter();
-    });
-
-    return { increment, count, principal, kanbanData };
+    },
   },
-});
+  mounted() {
+    console.log("kanban", counter);
+    counter.getPrincipal().then((res) => {
+      this.principal = res;
+    });
+    kanban.getBoardDto(0).then((res) => {
+      console.log(JSON.stringify(res));
+      this.kanbanData = JSON.stringify(res);
+    });
+  },
+  // setup: () => {
+
+  //   onMounted(() => {
+  //     kanban.getBoardDto(0).then((res) => {
+  //       console.log(JSON.stringify(res));
+  //       kanbanData.value = JSON.stringify(res);
+  //     });
+  //     counter.getPrincipal().then((res) => {
+  //       principal.value = res;
+  //     });
+  //     refreshCounter();
+  //   });
+
+  //   return { increment, count, principal, kanbanData };
+  // },
+};
 </script>
 
 <style scoped>
