@@ -29,14 +29,13 @@ export default {
     };
   },
   methods: {
-    refreshCounter: async () => {
+    refreshCounter: async function () {
       const res = await counter.getValue();
-      count.value = res.toString();
+      this.count = res.toString();
     },
-    increment: async () => {
-      console.log("opts", counter);
+    increment: async function () {
       await counter.increment();
-      refreshCounter();
+      this.refreshCounter();
     },
   },
   mounted() {
@@ -48,22 +47,8 @@ export default {
       console.log(JSON.stringify(res));
       this.kanbanData = JSON.stringify(res);
     });
+    this.refreshCounter();
   },
-  // setup: () => {
-
-  //   onMounted(() => {
-  //     kanban.getBoardDto(0).then((res) => {
-  //       console.log(JSON.stringify(res));
-  //       kanbanData.value = JSON.stringify(res);
-  //     });
-  //     counter.getPrincipal().then((res) => {
-  //       principal.value = res;
-  //     });
-  //     refreshCounter();
-  //   });
-
-  //   return { increment, count, principal, kanbanData };
-  // },
 };
 </script>
 

@@ -1,8 +1,40 @@
 <template>
-  <div>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <router-view v-if="dataReady" />
-  </div>
+
+<v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+      <div class="d-flex align-center">
+        <v-img
+          alt="Kaban Logo"
+          class="shrink mr-2"
+          contain
+          src="src/assets/logo.png"
+          transition="scale-transition"
+          width="150"
+        />
+
+        
+      </div>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        href="https://github.com/esensconsulting/KanbanIC"
+        target="_blank"
+        text
+      >
+        <span class="mr-2">Github</span>
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <router-view v-if="dataReady"/>
+    </v-main>
+  </v-app>
 </template>
 
 <script>

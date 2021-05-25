@@ -1,5 +1,6 @@
 import { defineConfig } from "vite"
 import { createVuePlugin } from 'vite-plugin-vue2'
+import ViteComponents, { VuetifyResolver } from 'vite-plugin-components'
 import dfxJson from "./dfx.json"
 import path from "path"
 
@@ -26,7 +27,13 @@ const aliases = Object.entries(dfxJson.canisters).reduce(
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [createVuePlugin()],
+  plugins: [
+    createVuePlugin(),
+    ViteComponents({ 
+      transformer: "vue2",
+      customComponentResolvers: [VuetifyResolver()]
+     })
+  ],
   resolve: {
     alias: {
       ...aliases,
