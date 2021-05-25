@@ -8,21 +8,21 @@
   },
   "dependencies": {
     "@dfinity/agent": "0.8.8",
-    "@dfinity/auth-client": "^0.8.8",
+    "@dfinity/auth-client": "^0.8.9",
     "@dfinity/authentication": "^0.7.1",
     "dotenv": "^9.0.2",
+    "sass": "^1.32.13",
     "vue": "^2.6.12",
     "vue-router": "^3.5.1",
     "vuetify": "^2.5.0",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "vite-plugin-vue2": "^1.4.2",
     "@vue/compiler-sfc": "^3.0.5",
     "patch-package": "^6.4.7",
-    "sass": "^1.32.7",
-    "vite": "^2.1.5",
+    "vite": "^2.3.3",
     "vite-plugin-components": "^0.9.0",
+    "vite-plugin-vue2": "^1.4.2",
     "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.7.0"
   }
